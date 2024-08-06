@@ -8,4 +8,4 @@ All the possible places a knight can end up after one move look like this:
 
 ## Challenge
 
-Write a `knightMoves` function that shows the shortest possible way to get from one square to another by outputting all squares the knight will stop on along the way.
+Using a graph data structure, write a `knightMoves` function that shows the shortest possible way to get from one square to another by outputting all squares the knight will stop on along the way.
