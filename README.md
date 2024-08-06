@@ -5,7 +5,7 @@ Given enough turns, a knight on a standard 8x8 chess board can move from any squ
 All the possible places a knight can end up after one move look like this:
 
 <div align="center">
-  <img src="./assets/knight-example.png" alt="Example of possible places a knight can end up after a move">
+  <img src="./assets/move-example.png" alt="Example of possible places a knight can end up after a move">
 </div>
 
 ## Challenge
