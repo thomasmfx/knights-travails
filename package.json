@@ -1,0 +1,8 @@
+{
+  "name": "knights-travails",
+  "version": "1.0.0",
+  "description": "Using a Graph data structure to find the shortest path that a knight can get from one square to another in a chess board.",
+  "main": "main.js",
+  "author": "thomasmfx",
+  "license": "ISC"
+}
