@@ -1,4 +1,8 @@
-function buildAdjMatrix(knightPosition) {
+function outOfBoard(n) {
+  if (n < 0 || n > 7) return true;
+};
+
+function buildMatrix(knightPosition) {
   let matrix = [];
   let row = [];
   let x = knightPosition[0];
