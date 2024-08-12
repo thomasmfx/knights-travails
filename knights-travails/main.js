@@ -8,11 +8,14 @@ class Board {
   get matrix() {
     return this._matrix;
   };
+
+  updateMatrix(currentPosition) {
+    this._matrix = buildMatrix(currentPosition);
+  };
 };
 
-function knightMoves(x, y) {
+function knightMoves(start, end) {
 
 };
 
 let board = new Board();
-console.table(board.matrix);
