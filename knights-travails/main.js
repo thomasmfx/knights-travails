@@ -54,7 +54,39 @@ class Board {
 };
 
 function knightMoves(start, end) {
+  if (outOfBoard(start) || outOfBoard(end)) throw new Error('Invalid position');
 
+  let board = new Board();
+  let root = board.possibleMoves(start);
+
+  let steps = [start];
+  let visited = [];
+  let queue = root;
+
+  let currentNode = start;
+
+  while (!equalPositions(currentNode, end)) {
+    let neighbors = board.possibleMoves(currentNode);
+    let alreadyVisited = visited.filter((node) => equalPositions(node, currentNode)).shift();
+
+    !alreadyVisited
+    ? visited.push(currentNode)
+    : steps = [start];
+    
+    for (const neighbor of neighbors) queue.push(neighbor);
+
+    currentNode = queue.shift();
+    steps.push(currentNode);
+  };
+
+  return printSteps(steps);
 };
 
-let board = new Board();
+console.log('\n')
+console.log(knightMoves([4, 4], [4, 4]));
+console.log('\n')
+console.log(knightMoves([4, 4], [2, 3]));
+console.log('\n')
+console.log(knightMoves([3, 3], [4, 5]));
+console.log('\n')
+console.log(knightMoves([0, 0], [7, 7]));
