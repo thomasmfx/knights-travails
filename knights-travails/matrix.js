@@ -1,8 +1,11 @@
-function outOfBoard(n) {
-  if (n < 0 || n > 7) return true;
+export function outOfBoard(cordinates) {
+  if (
+    (cordinates[0] < 0 || cordinates[0] > 7)
+    || (cordinates[1] < 0 || cordinates[1] > 7)
+  ) return true;
 };
 
-export default function buildMatrix(knightPosition) {
+export function buildMatrix() {
   let matrix = [];
   let x = knightPosition[0];
   let y = knightPosition[1];
@@ -11,9 +14,8 @@ export default function buildMatrix(knightPosition) {
     matrix.push([0, 0, 0, 0, 0, 0, 0, 0]);
   };
 
-  let positions = [
-    [x - 2, y - 1],
-    [x - 1, y - 2],
+  return matrix; 
+};
 
     [x - 2, y + 1],
     [x + 1, y - 2],
