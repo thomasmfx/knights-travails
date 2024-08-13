@@ -1,19 +1,12 @@
 import { buildMatrix, outOfBoard } from "./matrix.js";
 
 function equalPositions(p1, p2) {
-  if ((p1[0] === p2[0]) && (p1[1] === p2[1])) {
-    return true
-  };
-
-  return false;
+  return (p1[0] === p2[0]) && (p1[1] === p2[1]) ? true : false;
 };
 
 function printSteps(steps) {
   let text = `You made it in ${steps.length - 1} moves! Here's your path: \n`;
-
-  for (const step of steps) {
-    text += ` [${step}] \n`
-  };
+  for (const step of steps) text += ` [${step}] \n`
 
   return text;
 };
@@ -58,23 +51,22 @@ function knightMoves(start, end) {
 
   let board = new Board();
   let root = board.possibleMoves(start);
-
   let steps = [start];
-  let visited = [];
-  let queue = root;
 
+  let queue = [...root];
+  let visited = [];
   let currentNode = start;
 
   while (!equalPositions(currentNode, end)) {
     let neighbors = board.possibleMoves(currentNode);
     let alreadyVisited = visited.filter((node) => equalPositions(node, currentNode)).shift();
-
-    !alreadyVisited
-    ? visited.push(currentNode)
-    : steps = [start];
+    
+    alreadyVisited
+    ? steps = [start]
+    : visited.push(currentNode);
     
     for (const neighbor of neighbors) queue.push(neighbor);
-
+    
     currentNode = queue.shift();
     steps.push(currentNode);
   };
@@ -85,7 +77,7 @@ function knightMoves(start, end) {
 console.log('\n')
 console.log(knightMoves([4, 4], [4, 4]));
 console.log('\n')
-console.log(knightMoves([4, 4], [2, 3]));
+console.log(knightMoves([0, 0], [3, 3]));
 console.log('\n')
 console.log(knightMoves([3, 3], [4, 5]));
 console.log('\n')
